@@ -10,4 +10,10 @@
 
 @interface YMHomeListTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) UIImageView *headImg;  // 头像
+@property (strong, nonatomic) UILabel *nameLabel;    // 名字
+@property (strong, nonatomic) UILabel *jobLabel;     // 职位
+@property (strong, nonatomic) UILabel *moneyLabel;   // 薪水
+@property (strong, nonatomic) UIButton *phoneButton; // 电话按钮
+
 @end

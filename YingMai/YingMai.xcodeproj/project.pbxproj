@@ -53,8 +53,8 @@
 		944CB32F1C1928480083AD9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		944CB3311C1928480083AD9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		944CB3321C1928480083AD9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		944CB3341C1928480083AD9A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		944CB3351C1928480083AD9A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		944CB3341C1928480083AD9A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
+		944CB3351C1928480083AD9A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		944CB3381C1928480083AD9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944CB33A1C1928480083AD9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		944CB33D1C1928480083AD9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -166,8 +166,6 @@
 				944CB3871C1929B10083AD9A /* YMMe(我) */,
 				944CB3311C1928480083AD9A /* AppDelegate.h */,
 				944CB3321C1928480083AD9A /* AppDelegate.m */,
-				944CB3341C1928480083AD9A /* ViewController.h */,
-				944CB3351C1928480083AD9A /* ViewController.m */,
 				944CB3371C1928480083AD9A /* Main.storyboard */,
 				944CB33A1C1928480083AD9A /* Assets.xcassets */,
 				944CB33C1C1928480083AD9A /* LaunchScreen.storyboard */,
@@ -310,6 +308,8 @@
 		944CB3861C1929B10083AD9A /* YMMainTabbarController */ = {
 			isa = PBXGroup;
 			children = (
+				944CB3341C1928480083AD9A /* ViewController.h */,
+				944CB3351C1928480083AD9A /* ViewController.m */,
 			);
 			path = YMMainTabbarController;
 			sourceTree = "<group>";

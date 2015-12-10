@@ -12,7 +12,7 @@
 #import "YMHomeSortModel.h"
 
 
-static CGFloat sortTableViewWith = 100;
+static CGFloat sortTableViewWith = 85;
 static NSString *sortTableViewIdentifier = @"sortTableViewCellIdentifier";
 static NSString *listTableViewIdentifier = @"listTableViewCellIdentifier";
 
@@ -22,6 +22,7 @@ static NSString *listTableViewIdentifier = @"listTableViewCellIdentifier";
 @property (strong, nonatomic) UITableView *listTabelView;  // 分类列表
 
 @property (strong, nonatomic) NSMutableArray *dataArray;  // 数据源数组
+@property (nonatomic) NSInteger selectedIndex;
 
 @end
 
@@ -37,6 +38,8 @@ static NSString *listTableViewIdentifier = @"listTableViewCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _selectedIndex = 0;
+    
     _dataArray = [NSMutableArray array];
     NSArray *textArr = @[@"涨薪", @"家人", @"单位", @"同学", @"java"];
     for (int i = 0; i < 5; i++) {
@@ -49,9 +52,31 @@ static NSString *listTableViewIdentifier = @"listTableViewCellIdentifier";
         [_dataArray addObject:model];
     }
     
+    self.view.backgroundColor = RGB(1, 174, 159, 1.0);
+    
     [self.view addSubview:self.sortTableView];
     [self.view addSubview:self.listTabelView];
 }
+
+// 当视图加载完成时 默认第一个cell为点击状态
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self selectIndexPathZero];
+}
+
+// 默认选中第一个cell
+- (void)selectIndexPathZero {
+    
+    NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:_selectedIndex inSection:0];
+
+    [self.sortTableView selectRowAtIndexPath:selectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+
+    if ([self.sortTableView.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.sortTableView.delegate tableView:self.sortTableView didSelectRowAtIndexPath:selectedIndexPath];
+    }
+}
+
 
 #pragma mark - tableView DataSource and Delegate
 
@@ -91,18 +116,29 @@ static NSString *listTableViewIdentifier = @"listTableViewCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _sortTableView) {
+        
+        _selectedIndex = indexPath.row;
+        
         YMHomeSortTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
-        YMHomeSortModel *model = _dataArray[indexPath.row];
-        model.isSelected = !model.isSelected;
+        cell.isSelected = YES;
         
-        if (model.isSelected == NO) {
-            cell.backgroundColor = [UIColor orangeColor];
-        } else {
-            cell.backgroundColor = [UIColor whiteColor];
-        }
+        cell.backgroundColor = RGB(1, 174, 159, 1.0);
         
-        [_sortTableView reloadData];
+        NSLog(@"%@", @"0");
+    }
+}
+
+// 当cell取消选中状态时
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == _sortTableView) {
+        YMHomeSortTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        cell.isSelected = NO;
+        
+        cell.backgroundColor = [UIColor whiteColor];
+        
+        NSLog(@"%@", @"0");
     }
 }
 
@@ -112,6 +148,7 @@ static NSString *listTableViewIdentifier = @"listTableViewCellIdentifier";
         YMHomeSortTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:sortTableViewIdentifier];
         
         YMHomeSortModel *model = _dataArray[indexPath.row];
+        
         [cell addTheModel:model];
         
         return cell;
@@ -137,7 +174,7 @@ static NSString *listTableViewIdentifier = @"listTableViewCellIdentifier";
     
     [_listTabelView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);
-        make.left.equalTo(self.sortTableView.mas_right);
+        make.left.equalTo(self.sortTableView.mas_right).offset(2);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(self.view.mas_height);
     }];

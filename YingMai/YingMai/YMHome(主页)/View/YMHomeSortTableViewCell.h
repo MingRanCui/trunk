@@ -12,6 +12,7 @@
 @interface YMHomeSortTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) UILabel *txtLabel;  // 分类标题
+@property (nonatomic) BOOL isSelected;
 
 // 赋值
 - (void)addTheModel:(YMHomeSortModel *)model;
