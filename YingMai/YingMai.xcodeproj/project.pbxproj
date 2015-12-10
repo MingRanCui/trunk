@@ -83,7 +83,6 @@
 		944CB3761C1929B10083AD9A /* YCRequestDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCRequestDataService.h; sourceTree = "<group>"; };
 		944CB3771C1929B10083AD9A /* YCRequestDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCRequestDataService.m; sourceTree = "<group>"; };
 		944CB3781C1929B10083AD9A /* Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parameters.h; sourceTree = "<group>"; };
-		944CB3791C1929B10083AD9A /* yingmai.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yingmai.pch; sourceTree = "<group>"; };
 		944CB37C1C1929B10083AD9A /* YMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMHomeViewController.h; sourceTree = "<group>"; };
 		944CB37D1C1929B10083AD9A /* YMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHomeViewController.m; sourceTree = "<group>"; };
 		944CB37F1C1929B10083AD9A /* YMHomeSortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMHomeSortModel.h; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		944CB3851C1929B10083AD9A /* YMHomeSortTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMHomeSortTableViewCell.m; sourceTree = "<group>"; };
 		944CB3891C1929B10083AD9A /* YMMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMMeViewController.h; sourceTree = "<group>"; };
 		944CB38A1C1929B10083AD9A /* YMMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMMeViewController.m; sourceTree = "<group>"; };
+		944CB39A1C192F480083AD9A /* yingmai.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yingmai.pch; sourceTree = "<group>"; };
 		ACBE8F2DC02653D0E91E756F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BAEDB15F148AEFA9BE3B9E9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E739220856876510E89FF113 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +245,7 @@
 			children = (
 				944CB36C1C1929B10083AD9A /* OtherClass */,
 				944CB3781C1929B10083AD9A /* Parameters.h */,
-				944CB3791C1929B10083AD9A /* yingmai.pch */,
+				944CB39A1C192F480083AD9A /* yingmai.pch */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -693,6 +693,8 @@
 			baseConfigurationReference = BAEDB15F148AEFA9BE3B9E9F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YingMai/Common/yingmai.pch;
 				INFOPLIST_FILE = YingMai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yuncang.com.YingMai;
@@ -705,6 +707,8 @@
 			baseConfigurationReference = ACBE8F2DC02653D0E91E756F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YingMai/Common/yingmai.pch;
 				INFOPLIST_FILE = YingMai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yuncang.com.YingMai;
